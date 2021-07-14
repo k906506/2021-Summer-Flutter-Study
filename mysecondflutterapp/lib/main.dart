@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'widgets/transaction_list.dart';
+import 'widgets/user_transactions.dart';
 
 void main() {
   return runApp(MyApp());
@@ -35,36 +35,7 @@ class MyApp extends StatelessWidget {
                 ),
               ),
             ),
-            Card(
-              elevation: 5,
-              child: Container(
-                padding: EdgeInsets.all(10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    TextField(
-                      decoration: InputDecoration(labelText: 'Title'),
-                      // 1번 방법을 사용하면 아래 1줄처럼 코드를 작성
-                      // onChanged: (val) => titleInput = val,
-                      controller : titleController,
-                    ),
-                    TextField(
-                      decoration: InputDecoration(labelText: 'Amount'),
-                      // 1번 방법을 사용하면 아래 1줄처럼 코드를 작성
-                      // onChanged: (val) => amountInput = val,
-                      controller : amountController,
-                    ),
-                    FlatButton(
-                      child: Text('Add Transaction'),
-                      textColor: Colors.purple,
-                      onPressed: () {
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            TransactionList(),
+            UserTransaction(),
           ],
         ),
       ),
