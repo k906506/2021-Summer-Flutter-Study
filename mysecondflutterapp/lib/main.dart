@@ -19,24 +19,26 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('Flutter App'),
         ),
-        body: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          // Column이므로 main은 y축 (위에서 아래)
-          children: <Widget>[
-            Container(
-              width: double.infinity, // 기기의 최대 너비
-              child: Card(
-                color: Colors.blue,
-                elevation: 50, // 그림자
-                child: Text(
-                  'Chart',
-                  textAlign: TextAlign.center,
+        body: SingleChildScrollView(
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            // Column이므로 main은 y축 (위에서 아래)
+            children: <Widget>[
+              Container(
+                width: double.infinity, // 기기의 최대 너비
+                child: Card(
+                  color: Colors.blue,
+                  elevation: 50, // 그림자
+                  child: Text(
+                    'Chart',
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
-            ),
-            UserTransaction(),
-          ],
+              UserTransaction(),
+            ],
+          ),
         ),
       ),
     );
