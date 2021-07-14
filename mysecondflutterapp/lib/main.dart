@@ -1,29 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import './transaction.dart';
+import 'widgets/transaction_list.dart';
 
 void main() {
   return runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  late String titleInput;
-  late String amountInput;
-
-  final List<Transaction> transactions = [
-    Transaction(
-      id: 't1',
-      title: 'New Shoes',
-      amount: 69.99,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Weekly Groceries ',
-      amount: 16.99,
-      date: DateTime.now(),
-    ),
-  ];
+  // 1번 방법을 사용하면 아래 2줄처럼 코드 작성
+  // late String titleInput;
+  // late String amountInput;
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -57,11 +44,15 @@ class MyApp extends StatelessWidget {
                   children: <Widget>[
                     TextField(
                       decoration: InputDecoration(labelText: 'Title'),
-                      onChanged: (val) => titleInput = val,
+                      // 1번 방법을 사용하면 아래 1줄처럼 코드를 작성
+                      // onChanged: (val) => titleInput = val,
+                      controller : titleController,
                     ),
                     TextField(
                       decoration: InputDecoration(labelText: 'Amount'),
-                      onChanged: (val) => amountInput = val,
+                      // 1번 방법을 사용하면 아래 1줄처럼 코드를 작성
+                      // onChanged: (val) => amountInput = val,
+                      controller : amountController,
                     ),
                     FlatButton(
                       child: Text('Add Transaction'),
@@ -73,50 +64,7 @@ class MyApp extends StatelessWidget {
                 ),
               ),
             ),
-            Column(
-              children: transactions.map((tx) {
-                return Card(
-                    child: Row(children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      '\$${tx.amount}', // 문자열 입력 방식
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.purple,
-                      ),
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.purple,
-                        width: 2,
-                      ),
-                    ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        tx.title,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
-                      ),
-                      Text(
-                        DateFormat.yMMMMd().add_jm().format(tx.date),
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ],
-                  ),
-                ]));
-              }).toList(),
-            ),
+            TransactionList(),
           ],
         ),
       ),
