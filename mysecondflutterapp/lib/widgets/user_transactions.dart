@@ -38,9 +38,15 @@ class _UserTransactionState extends State<UserTransaction> {
       date: DateTime.now(),
     ),
     Transaction(
-      id: 't6',
+      id: 't5',
       title: 'Genesis',
       amount: 10.99,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't6',
+      title: 'baker',
+      amount: 2.99,
       date: DateTime.now(),
     ),
   ];
