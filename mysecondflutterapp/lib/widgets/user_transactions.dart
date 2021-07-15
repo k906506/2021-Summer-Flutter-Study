@@ -28,19 +28,19 @@ class _UserTransactionState extends State<UserTransaction> {
     Transaction(
       id: 't3',
       title: 'Chicken',
-      amount: 9.99,
+      amount: 4.99,
       date: DateTime.now(),
     ),
     Transaction(
       id: 't4',
       title: 'Nike Clothes',
-      amount: 199.99,
+      amount: 9.99,
       date: DateTime.now(),
     ),
     Transaction(
       id: 't6',
       title: 'Genesis',
-      amount: 199999.99,
+      amount: 10.99,
       date: DateTime.now(),
     ),
   ];
