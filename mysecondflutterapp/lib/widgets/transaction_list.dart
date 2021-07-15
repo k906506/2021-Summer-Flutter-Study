@@ -20,7 +20,7 @@ class TransactionList extends StatelessWidget {
                   margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                   padding: EdgeInsets.all(10),
                   child: Text(
-                    '\$${transactions[index].amount}', // 문자열 입력 방식
+                    '\$${transactions[index].amount.toStringAsFixed(2)}', // 문자열 입력 방식
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
