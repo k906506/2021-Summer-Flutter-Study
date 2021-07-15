@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'models/transaction.dart';
 import 'widgets/new_transaction.dart';
 import 'widgets/transaction_list.dart';
+import 'widgets/chart.dart';
 
 void main() {
   return runApp(MyApp());
@@ -71,6 +72,16 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  List<Transaction> get _recentTransactions {
+    return _userTransactions.where((tx) {
+      return tx.date.isAfter(
+        DateTime.now().subtract(
+          Duration(days: 7),
+        ),
+      );
+    }).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,17 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           // Column이므로 main은 y축 (위에서 아래)
           children: <Widget>[
-            Container(
-              width: double.infinity, // 기기의 최대 너비
-              child: Card(
-                color: Colors.blue,
-                elevation: 50, // 그림자
-                child: Text(
-                  'Chart',
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
+            Chart(_recentTransactions),
             TransactionList(_userTransactions),
           ],
         ),
