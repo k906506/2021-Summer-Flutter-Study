@@ -15,8 +15,9 @@ class MyApp extends StatelessWidget {
       title: 'Personal Expenses',
       theme: ThemeData(
         fontFamily: 'Dohyeon',
-        primaryColor: Colors.deepPurpleAccent,
-        accentColor: Colors.amberAccent,
+        primaryColor: Colors.lightBlueAccent,
+        accentColor: Colors.blueAccent,
+        errorColor: Colors.blueGrey,
       ),
       home: MyHomePage(),
     );
@@ -47,11 +48,12 @@ class _MyHomePageState extends State<MyHomePage> {
     // ),
   ];
 
-  void _addNewTransaction(String txTitle, double txAmount) {
+  void _addNewTransaction(
+      String txTitle, double txAmount, DateTime chosenDate) {
     final newTx = Transaction(
       title: txTitle,
       amount: txAmount,
-      date: DateTime.now(),
+      date: chosenDate,
       id: DateTime.now().toString(),
     );
     setState(() {
@@ -82,6 +84,12 @@ class _MyHomePageState extends State<MyHomePage> {
     }).toList();
   }
 
+  void _deleteTransaction(String id) {
+    setState(() {
+      _userTransactions.removeWhere((tx) => tx.id == id);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,11 +97,10 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('Personal Expenses'),
         actions: <Widget>[
           Builder(
-            builder: (context) =>
-                IconButton(
-                  icon: Icon(Icons.add),
-                  onPressed: () => _startAddNewTransaction(context),
-                ),
+            builder: (context) => IconButton(
+              icon: Icon(Icons.add),
+              onPressed: () => _startAddNewTransaction(context),
+            ),
           ),
         ],
       ),
@@ -105,21 +112,19 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Container(
               padding: EdgeInsets.only(top: 20),
-              child:
-              Text("지난 7일간의 소비 금액"),
+              child: Text("지난 7일간의 소비 금액"),
             ),
             Chart(_recentTransactions),
-            TransactionList(_userTransactions),
+            TransactionList(_userTransactions, _deleteTransaction),
           ],
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Builder(
-        builder: (context) =>
-            FloatingActionButton(
-              child: Icon(Icons.add),
-              onPressed: () => _startAddNewTransaction(context),
-            ),
+        builder: (context) => FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () => _startAddNewTransaction(context),
+        ),
       ),
     );
   }
