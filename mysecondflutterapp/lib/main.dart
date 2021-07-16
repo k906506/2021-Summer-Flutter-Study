@@ -56,9 +56,11 @@ class _MyHomePageState extends State<MyHomePage> {
       date: chosenDate,
       id: DateTime.now().toString(),
     );
-    setState(() {
-      _userTransactions.add(newTx);
-    });
+    setState(
+      () {
+        _userTransactions.add(newTx);
+      },
+    );
   }
 
   void _startAddNewTransaction(BuildContext ctx) {
@@ -94,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Personal Expenses'),
+        title: Text('가계부'),
         actions: <Widget>[
           Builder(
             builder: (context) => IconButton(

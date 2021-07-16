@@ -17,7 +17,7 @@ class TransactionList extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 20),
                 child: Text(
-                  "No transactions added yet!",
+                  "항목을 추가해주세요!",
                 ),
               ),
               SizedBox(
@@ -43,7 +43,7 @@ class TransactionList extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsets.all(5),
                         child: Text(
-                          '\$${transactions[index].amount}',
+                          '${transactions[index].amount.toInt()}원',
                           style: TextStyle(fontSize: 12),
                         ),
                       ),

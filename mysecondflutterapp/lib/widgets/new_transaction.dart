@@ -61,14 +61,14 @@ class _NewTransactionState extends State<NewTransaction> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
             TextField(
-              decoration: InputDecoration(labelText: 'Title'),
+              decoration: InputDecoration(labelText: '품목명'),
               // 1번 방법을 사용하면 아래 1줄처럼 코드를 작성
               // onChanged: (val) => titleInput = val,
               controller: _titleController,
               onSubmitted: (_) => _submitData,
             ),
             TextField(
-              decoration: InputDecoration(labelText: 'Amount'),
+              decoration: InputDecoration(labelText: '가격'),
               // 1번 방법을 사용하면 아래 1줄처럼 코드를 작성
               // onChanged: (val) => amountInput = val,
               controller: _amountController,
@@ -80,18 +80,18 @@ class _NewTransactionState extends State<NewTransaction> {
                   child: Text(
                     _selectedDate == null
                         ? "Picked Date"
-                        : 'Picked Date: ${DateFormat.yMd().format(_selectedDate)}',
+                        : '선택된 날짜 : ${DateFormat.yMd().format(_selectedDate)}',
                   ),
                 ),
                 FlatButton(
                   textColor: Theme.of(context).primaryColor,
-                  child: Text("Choose Date"),
+                  child: Text("날짜 선택"),
                   onPressed: _persentDatePicket,
                 ),
               ],
             ),
             RaisedButton(
-              child: Text('Add Transaction'),
+              child: Text("항목 추가"),
               color: Colors.blueAccent,
               textColor: Colors.white,
               onPressed: _submitData,
