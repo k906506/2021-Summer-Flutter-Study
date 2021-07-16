@@ -7,3 +7,6 @@ Flutter 학습
 
 [firstflutterhomework](https://github.com/k906506/2021-Summer-Assemble-And-Selfcode/tree/master/firstflutterhomework)
 섹션 2: Flutter Basics [QUIZ APP]의 개인과제에 해당하는 소스코드
+
+[mysecondflutterapp](https://github.com/k906506/2021-Summer-Assemble-And-Selfcode/tree/master/mysecondflutterapp)
+섹션 4: Flutter Real App [PERSONAL EXPNESES APP]에 해당하는 소스코드
