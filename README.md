@@ -15,4 +15,4 @@ Flutter 학습
 **3** 
 [mysecondflutterapp](https://github.com/k906506/2021-Summer-Assemble-And-Selfcode/tree/master/mysecondflutterapp)
 &nbsp;
-섹션 4: Flutter Real App [PERSONAL EXPNESES APP]에 해당하는 소스코드
+섹션 4: Flutter Real App [PERSONAL EXPENSES APP]에 해당하는 소스코드
