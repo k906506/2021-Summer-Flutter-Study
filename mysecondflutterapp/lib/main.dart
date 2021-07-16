@@ -89,10 +89,11 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('Personal Expenses'),
         actions: <Widget>[
           Builder(
-            builder: (context) => IconButton(
-              icon: Icon(Icons.add),
-              onPressed: () => _startAddNewTransaction(context),
-            ),
+            builder: (context) =>
+                IconButton(
+                  icon: Icon(Icons.add),
+                  onPressed: () => _startAddNewTransaction(context),
+                ),
           ),
         ],
       ),
@@ -102,6 +103,11 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           // Column이므로 main은 y축 (위에서 아래)
           children: <Widget>[
+            Container(
+              padding: EdgeInsets.only(top: 20),
+              child:
+              Text("지난 7일간의 소비 금액"),
+            ),
             Chart(_recentTransactions),
             TransactionList(_userTransactions),
           ],
@@ -109,10 +115,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Builder(
-        builder: (context) => FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () => _startAddNewTransaction(context),
-        ),
+        builder: (context) =>
+            FloatingActionButton(
+              child: Icon(Icons.add),
+              onPressed: () => _startAddNewTransaction(context),
+            ),
       ),
     );
   }
