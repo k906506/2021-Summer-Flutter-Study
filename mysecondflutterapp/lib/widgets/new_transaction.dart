@@ -31,7 +31,7 @@ class _NewTransactionState extends State<NewTransaction> {
     Navigator.of(context).pop();
   }
 
-  void _persentDatePicket() {
+  void _presentDatePicket() {
     showDatePicker(
       context: context,
       initialDate: DateTime.now(),
@@ -53,50 +53,60 @@ class _NewTransactionState extends State<NewTransaction> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 3,
-      child: Container(
-        padding: EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            TextField(
-              decoration: InputDecoration(labelText: '품목명'),
-              // 1번 방법을 사용하면 아래 1줄처럼 코드를 작성
-              // onChanged: (val) => titleInput = val,
-              controller: _titleController,
-              onSubmitted: (_) => _submitData,
+    return SingleChildScrollView(
+      child: Card(
+        elevation: 3,
+        child: Container(
+          padding: EdgeInsets.all(10),
+          child: Container(
+            padding: EdgeInsets.only(
+              top: 10,
+              left: 10,
+              right: 10,
+              bottom: MediaQuery.of(context).viewInsets.bottom + 10,
             ),
-            TextField(
-              decoration: InputDecoration(labelText: '가격'),
-              // 1번 방법을 사용하면 아래 1줄처럼 코드를 작성
-              // onChanged: (val) => amountInput = val,
-              controller: _amountController,
-              onSubmitted: (_) => _submitData,
-            ),
-            Row(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
-                Expanded(
-                  child: Text(
-                    _selectedDate == null
-                        ? "Picked Date"
-                        : '선택된 날짜 : ${DateFormat.yMd().format(_selectedDate)}',
-                  ),
+                TextField(
+                  decoration: InputDecoration(labelText: '품목명'),
+                  // 1번 방법을 사용하면 아래 1줄처럼 코드를 작성
+                  // onChanged: (val) => titleInput = val,
+                  controller: _titleController,
+                  onSubmitted: (_) => _submitData,
                 ),
-                FlatButton(
-                  textColor: Theme.of(context).primaryColor,
-                  child: Text("날짜 선택"),
-                  onPressed: _persentDatePicket,
+                TextField(
+                  decoration: InputDecoration(labelText: '가격'),
+                  // 1번 방법을 사용하면 아래 1줄처럼 코드를 작성
+                  // onChanged: (val) => amountInput = val,
+                  controller: _amountController,
+                  onSubmitted: (_) => _submitData,
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Text(
+                        _selectedDate == null
+                            ? "Picked Date"
+                            : '선택된 날짜 : ${DateFormat.yMd().format(_selectedDate)}',
+                      ),
+                    ),
+                    FlatButton(
+                      textColor: Theme.of(context).primaryColor,
+                      child: Text("날짜 선택"),
+                      onPressed: _presentDatePicket,
+                    ),
+                  ],
+                ),
+                RaisedButton(
+                  child: Text("항목 추가"),
+                  color: Colors.blueAccent,
+                  textColor: Colors.white,
+                  onPressed: _submitData,
                 ),
               ],
             ),
-            RaisedButton(
-              child: Text("항목 추가"),
-              color: Colors.blueAccent,
-              textColor: Colors.white,
-              onPressed: _submitData,
-            ),
-          ],
+          ),
         ),
       ),
     );
