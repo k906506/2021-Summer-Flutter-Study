@@ -12,24 +12,26 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: transactions.isEmpty
-          ? Column(children: <Widget>[
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 20),
-                child: Text(
-                  "항목을 추가해주세요!",
+          ? LayoutBuilder(builder: (ctx, constraints) {
+              return Column(children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 20),
+                  child: Text(
+                    "항목을 추가해주세요!",
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                height: 200,
-                child: Image.asset(
-                  'assets/images/waiting.png',
-                  fit: BoxFit.cover,
+                SizedBox(
+                  height: 20,
                 ),
-              ),
-            ])
+                Container(
+                  height: constraints.maxHeight * 0.6,
+                  child: Image.asset(
+                    'assets/images/waiting.png',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ]);
+            })
           : ListView.builder(
               itemBuilder: (ctx, index) {
                 return Card(
