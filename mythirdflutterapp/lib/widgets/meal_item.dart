@@ -15,6 +15,24 @@ class MealItem extends StatelessWidget {
       required this.complexity,
       required this.affordability});
 
+  String get complexityText {
+    if (complexity == Complexity.Simple) {
+      return 'Simple';
+    } else if (complexity == Complexity.Challenging) {
+      return 'Challenging';
+    } else
+      return 'Hard';
+  }
+
+  String get affordabilityText {
+    if (affordability == Affordability.Affordable) {
+      return 'Affordable';
+    } else if (affordability == Affordability.Pricey) {
+      return 'Pricey';
+    } else
+      return 'Luxury';
+  }
+
   void selectMeal() {}
 
   @override
@@ -32,10 +50,7 @@ class MealItem extends StatelessWidget {
             Stack(
               children: <Widget>[
                 ClipRRect(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15),
-                  ),
+                  borderRadius: BorderRadius.circular(15),
                   child: Image.network(
                     imageUrl,
                     height: 250,
@@ -43,20 +58,69 @@ class MealItem extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                Container(
-                  padding : EdgeInsets.all(3),
-                  child:Text(
-                    title,
-                    style: TextStyle(
-                      fontSize: 26,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                Positioned(
+                  bottom: 20,
+                  right: 10,
+                  child: Container(
+                    width: 250,
+                    color: Colors.black54,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 5,
+                      vertical: 5,
                     ),
-                    softWrap: true,
-                    overflow: TextOverflow.fade,
-                )
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                        fontSize: 26,
+                        color: Colors.white,
+                      ),
+                      softWrap: true,
+                      overflow: TextOverflow.fade,
+                    ),
+                  ),
                 ),
               ],
+            ),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.schedule,
+                      ),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text('$duration min'),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.work,
+                      ),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text(complexityText),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.attach_money,
+                      ),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text(affordabilityText),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ],
         ),
