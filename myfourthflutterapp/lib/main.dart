@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      builder : (ctx) => Products(),
+      // builder : (ctx) => Products(), -> 오류 발생
+      create: (context) => Products(),
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
