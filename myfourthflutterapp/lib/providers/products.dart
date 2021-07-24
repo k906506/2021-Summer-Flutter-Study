@@ -5,7 +5,7 @@ class Products with ChangeNotifier {
   List<Product> _items = [
     Product(
       id: 'p1',
-      title: '농심 배흥동 비빔면, 32개',
+      title: '농심 배흥동 비빔면, 32개입',
       description: '엄청 시원한 비빔면 존맛탱임!',
       price: 19020,
       imageUrl:
@@ -13,7 +13,7 @@ class Products with ChangeNotifier {
     ),
     Product(
       id: 'p2',
-      title: '농심 짬뽕건면, 32개',
+      title: '농심 짬뽕건면, 32개입',
       description: '이것이 짬뽕인가 짜장인가 모르겠네',
       price: 20300,
       imageUrl:
@@ -21,7 +21,7 @@ class Products with ChangeNotifier {
     ),
     Product(
       id: 'p3',
-      title: '신라면 블랙 두부김치, 4개',
+      title: '신라면 블랙 두부김치, 4개입',
       description: '히트상품 신라면 블랙의 후속작!',
       price: 3800,
       imageUrl:
