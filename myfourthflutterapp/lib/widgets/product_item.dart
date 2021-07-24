@@ -47,7 +47,7 @@ class ProductItem extends StatelessWidget {
               Icons.shopping_cart,
             ),
             onPressed: () {
-              cart.addItem(product.id, product.price, product.title);
+              cart.addItem(product.id, product.price, product.title, product.imageUrl);
             },
             color: Theme
                 .of(context)
