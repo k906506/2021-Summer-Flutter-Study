@@ -54,6 +54,7 @@ class CartScreen extends StatelessWidget {
               cart.items.values.toList()[index].quantity,
               cart.items.values.toList()[index].title,
               cart.items.values.toList()[index].imageUrl,
+              cart.items.keys.toList()[index], // 삭제할때 해당 아이템을 다 제거해야하므로 key를 넘겨준다
             ),
             itemCount: cart.itemCount,
           ))

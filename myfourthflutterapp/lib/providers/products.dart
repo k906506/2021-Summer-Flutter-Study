@@ -80,6 +80,28 @@ class Products with ChangeNotifier {
         price: 22950,
         imageUrl:
             'https://thumbnail7.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/2020/11/04/10/5/8b59da3d-c676-4529-986d-6969690a6733.jpg'),
+    Product(
+        id: 'p11',
+        title: '닌텐도 스위치 퍼펙트 슈퍼볼',
+        description: '곧 품절예상!',
+        price: 38000,
+        imageUrl:
+        'https://thumbnail7.coupangcdn.com/thumbnails/remote/300x300ex/image/retail/images/2021/07/14/10/8/311f8e83-9b5f-4fbb-9bda-50c74560bc08.jpg'),
+    Product(
+        id: 'p12',
+        title: 'Apple 정품 USB-C 케이블',
+        description: '정품 케이블',
+        price: 19500,
+        imageUrl:
+        'https://thumbnail10.coupangcdn.com/thumbnails/remote/300x300ex/image/retail/images/330677074620956-bc96f542-d67b-45d7-91ae-f91d39b59f5b.jpg'),
+    Product(
+        id: 'p13',
+        title: '애플워치 SE, GPS',
+        description: '2021년 최신형',
+        price: 345900,
+        imageUrl:
+        'https://thumbnail7.coupangcdn.com/thumbnails/remote/300x300ex/image/retail/images/7696374737960-06c26f91-d1ad-45c8-bf34-39ee275d068a.jpg'),
+
   ];
 
   List<Product> get items {
