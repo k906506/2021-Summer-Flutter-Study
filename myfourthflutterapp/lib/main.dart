@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myfourthflutterapp/providers/orders.dart';
 import '/screens/cart_screen.dart';
 import '/providers/cart.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +23,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           // builder : (ctx) => Products(), -> 오류 발생
           create: (ctx) => Cart(),
+        ),
+        ChangeNotifierProvider(
+          // builder : (ctx) => Products(), -> 오류 발생
+          create: (ctx) => Orders(),
         )
       ],
       child: MaterialApp(

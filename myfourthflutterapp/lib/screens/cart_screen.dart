@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/providers/orders.dart';
 import '/providers/cart.dart' show Cart;
 import 'package:provider/provider.dart';
 import '/widgets/cart_item.dart';
@@ -38,7 +39,13 @@ class CartScreen extends StatelessWidget {
                   ),
                   FlatButton(
                     child: Text('주문하기'),
-                    onPressed: () {},
+                    onPressed: () {
+                      Provider.of<Orders>(context, listen: false).addOrder(
+                        cart.items.values.toList(),
+                        cart.totalAmount,
+                      );
+                      cart.clear();
+                    },
                     textColor: Theme.of(context).primaryColor,
                   ),
                 ],
@@ -54,7 +61,8 @@ class CartScreen extends StatelessWidget {
               cart.items.values.toList()[index].quantity,
               cart.items.values.toList()[index].title,
               cart.items.values.toList()[index].imageUrl,
-              cart.items.keys.toList()[index], // 삭제할때 해당 아이템을 다 제거해야하므로 key를 넘겨준다
+              cart.items.keys
+                  .toList()[index], // 삭제할때 해당 아이템을 다 제거해야하므로 key를 넘겨준다
             ),
             itemCount: cart.itemCount,
           ))
