@@ -23,7 +23,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('MyShop'),
+        title: Text('고도 쇼핑'),
         actions: <Widget>[
           PopupMenuButton(
             onSelected: (FilterOptions selectedValue) {
@@ -40,11 +40,11 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
             ),
             itemBuilder: (_) => [
               PopupMenuItem(
-                child: Text('Only Favorites'),
+                child: Text('관심상품만 보기'),
                 value: FilterOptions.Favorites,
               ),
               PopupMenuItem(
-                child: Text('Show All'),
+                child: Text('모두 보기'),
                 value: FilterOptions.All,
               ),
             ],

@@ -24,7 +24,7 @@ class CartScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    'Total',
+                    '합계',
                     style: TextStyle(fontSize: 20),
                   ),
                   Spacer(),
@@ -40,10 +40,15 @@ class CartScreen extends StatelessWidget {
                   FlatButton(
                     child: Text('주문하기'),
                     onPressed: () {
-                      Provider.of<Orders>(context, listen: false).addOrder(
-                        cart.items.values.toList(),
-                        cart.totalAmount,
-                      );
+                      if (cart.totalAmount == 0) {
+                        false;
+                      }
+                      else {
+                        Provider.of<Orders>(context, listen: false).addOrder(
+                          cart.items.values.toList(),
+                          cart.totalAmount,
+                        );
+                      }
                       cart.clear();
                     },
                     textColor: Theme.of(context).primaryColor,
