@@ -86,22 +86,21 @@ class Products with ChangeNotifier {
         description: '곧 품절예상!',
         price: 38000,
         imageUrl:
-        'https://thumbnail7.coupangcdn.com/thumbnails/remote/300x300ex/image/retail/images/2021/07/14/10/8/311f8e83-9b5f-4fbb-9bda-50c74560bc08.jpg'),
+            'https://thumbnail7.coupangcdn.com/thumbnails/remote/300x300ex/image/retail/images/2021/07/14/10/8/311f8e83-9b5f-4fbb-9bda-50c74560bc08.jpg'),
     Product(
         id: 'p12',
         title: 'Apple 정품 USB-C 케이블',
         description: '정품 케이블',
         price: 19500,
         imageUrl:
-        'https://thumbnail10.coupangcdn.com/thumbnails/remote/300x300ex/image/retail/images/330677074620956-bc96f542-d67b-45d7-91ae-f91d39b59f5b.jpg'),
+            'https://thumbnail10.coupangcdn.com/thumbnails/remote/300x300ex/image/retail/images/330677074620956-bc96f542-d67b-45d7-91ae-f91d39b59f5b.jpg'),
     Product(
         id: 'p13',
         title: '애플워치 SE, GPS',
         description: '2021년 최신형',
         price: 345900,
         imageUrl:
-        'https://thumbnail7.coupangcdn.com/thumbnails/remote/300x300ex/image/retail/images/7696374737960-06c26f91-d1ad-45c8-bf34-39ee275d068a.jpg'),
-
+            'https://thumbnail7.coupangcdn.com/thumbnails/remote/300x300ex/image/retail/images/7696374737960-06c26f91-d1ad-45c8-bf34-39ee275d068a.jpg'),
   ];
 
   List<Product> get items {
@@ -126,7 +125,30 @@ class Products with ChangeNotifier {
 //   notifyListeners();
 // }
 //
-  void addProduct() {
+  void addProduct(Product product) {
+    final newProduct = Product(
+      id: DateTime.now().toString(),
+      title: product.title,
+      price: product.price,
+      description: product.description,
+      imageUrl: product.imageUrl,
+    );
+    _items.add(newProduct);
+    notifyListeners();
+  }
+
+  void updateProduct(String id, Product newProduct) {
+    final prodIndex = _items.indexWhere((prod) => prod.id == id);
+    if (prodIndex >= 0) {
+      _items[prodIndex] = newProduct;
+      notifyListeners();
+    } else {
+      print('...');
+    }
+  }
+
+  void deleteProduct(String id) {
+    _items.removeWhere((prod) => prod.id == id);
     notifyListeners();
   }
 }
