@@ -29,6 +29,29 @@ class CartItem extends StatelessWidget {
         alignment: Alignment.centerRight,
         padding: EdgeInsets.only(right: 20),
       ),
+      confirmDismiss: (direction) => showDialog(
+          context: context,
+          builder: (ctx) => AlertDialog(
+            title: Text("항목 제거"),
+            content: Text(
+              "해당 품목을 장바구니에서 제거하시겠습니까?",
+            ),
+            actions: <Widget>[
+              FlatButton(
+                child: Text("예"),
+                onPressed: () {
+                  Navigator.of(ctx).pop(true);
+                },
+              ),
+              FlatButton(
+                child: Text("아니오"),
+                onPressed: () {
+                  Navigator.of(ctx).pop(false);
+                },
+              ),
+            ],
+          ),
+        ),
       onDismissed: (direction) {
         Provider.of<Cart>(context, listen: false).removeItem(productId);
       },
