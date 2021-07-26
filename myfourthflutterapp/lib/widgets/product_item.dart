@@ -25,18 +25,15 @@ class ProductItem extends StatelessWidget {
         footer: GridTileBar(
           backgroundColor: Colors.black54,
           leading: Consumer<Product>(
-            builder: (ctx, product, child) =>
-                IconButton(
-                  icon: Icon(
-                    product.isFavorite ? Icons.favorite : Icons.favorite_border,
-                  ),
-                  onPressed: () {
-                    product.toggleFavoriteStatus();
-                  },
-                  color: Theme
-                      .of(context)
-                      .accentColor,
-                ),
+            builder: (ctx, product, child) => IconButton(
+              icon: Icon(
+                product.isFavorite ? Icons.favorite : Icons.favorite_border,
+              ),
+              onPressed: () {
+                product.toggleFavoriteStatus();
+              },
+              color: Theme.of(context).accentColor,
+            ),
           ),
           title: Text(
             product.title,
@@ -47,11 +44,23 @@ class ProductItem extends StatelessWidget {
               Icons.shopping_cart,
             ),
             onPressed: () {
-              cart.addItem(product.id, product.price, product.title, product.imageUrl);
+              cart.addItem(
+                  product.id, product.price, product.title, product.imageUrl);
+              Scaffold.of(context).hideCurrentSnackBar();
+              Scaffold.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('장바구니 추가'),
+                  duration : Duration(seconds: 2),
+                  action : SnackBarAction(
+                    label : "취소",
+                    onPressed: () {
+                      cart.removeSingleItem(product.id);
+                    },
+                  )
+                ),
+              );
             },
-            color: Theme
-                .of(context)
-                .accentColor,
+            color: Theme.of(context).accentColor,
           ),
         ),
       ),
