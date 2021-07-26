@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myfourthflutterapp/screens/user_product.dart';
 import '/screens/orders_screen.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -14,17 +15,25 @@ class AppDrawer extends StatelessWidget {
           Divider(),
           ListTile(
             leading: Icon(Icons.shop),
-            title: Text('Shop'),
+            title: Text('상품 확인'),
             onTap : () {
               Navigator.of(context).pushReplacementNamed('/');
             }
           ),
           Divider(),
           ListTile(
-              leading: Icon(Icons.shop),
-              title: Text('Orders'),
+              leading: Icon(Icons.shopping_cart),
+              title: Text('주문 내역'),
               onTap : () {
                 Navigator.of(context).pushReplacementNamed(OrdersScreen.routeName);
+              }
+          ),
+          Divider(),
+          ListTile(
+              leading: Icon(Icons.edit),
+              title: Text('상품 관리'),
+              onTap : () {
+                Navigator.of(context).pushReplacementNamed(UserProductsScreen.routeName);
               }
           ),
         ],
