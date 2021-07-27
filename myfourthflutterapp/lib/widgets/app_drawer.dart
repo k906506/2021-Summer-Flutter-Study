@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myfourthflutterapp/screens/user_product.dart';
+import '/screens/user_product.dart';
 import '/screens/orders_screen.dart';
 
 class AppDrawer extends StatelessWidget {
