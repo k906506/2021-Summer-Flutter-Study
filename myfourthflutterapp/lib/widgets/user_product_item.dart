@@ -37,15 +37,19 @@ class UserProductItem extends StatelessWidget {
                 try {
                   await Provider.of<Products>(context, listen: false)
                       .deleteProduct(id);
+                  scaffold.hideCurrentSnackBar();
                   scaffold.showSnackBar(
                     SnackBar(
                       content: Text("삭제에 성공했습니다.", textAlign: TextAlign.center),
+                      duration: Duration(seconds: 1),
                     ),
                   );
                 } catch (error) {
+                  scaffold.hideCurrentSnackBar();
                   scaffold.showSnackBar(
                     SnackBar(
                       content: Text("삭제에 실패했습니다.", textAlign: TextAlign.center),
+                      duration: Duration(seconds: 1),
                     ),
                   );
                 }

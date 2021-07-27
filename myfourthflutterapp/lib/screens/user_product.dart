@@ -18,7 +18,7 @@ class UserProductsScreen extends StatelessWidget {
     final productsData = Provider.of<Products>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Your Products'),
+        title: const Text('상품 조회'),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.add),

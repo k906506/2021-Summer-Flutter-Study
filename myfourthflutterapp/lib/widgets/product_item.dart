@@ -50,7 +50,7 @@ class ProductItem extends StatelessWidget {
               Scaffold.of(context).showSnackBar(
                 SnackBar(
                   content: Text('장바구니 추가'),
-                  duration : Duration(seconds: 2),
+                  duration : Duration(seconds: 1),
                   action : SnackBarAction(
                     label : "취소",
                     onPressed: () {
