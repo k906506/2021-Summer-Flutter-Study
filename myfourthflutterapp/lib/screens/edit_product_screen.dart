@@ -17,7 +17,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
   final _imageUrlFocusNode = FocusNode();
   final _form = GlobalKey<FormState>();
   var _editedProduct = Product(
-    id: '',
+    id: null,
     title: '',
     price: 0,
     description: '',
@@ -129,7 +129,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                 },
                 onSaved: (value) {
                   _editedProduct = Product(
-                      title: value as String,
+                      title: value,
                       price: _editedProduct.price,
                       description: _editedProduct.description,
                       imageUrl: _editedProduct.imageUrl,
@@ -187,7 +187,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                   _editedProduct = Product(
                     title: _editedProduct.title,
                     price: _editedProduct.price,
-                    description: value as String,
+                    description: value,
                     imageUrl: _editedProduct.imageUrl,
                     id: _editedProduct.id,
                     isFavorite: _editedProduct.isFavorite,
@@ -249,7 +249,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                           title: _editedProduct.title,
                           price: _editedProduct.price,
                           description: _editedProduct.description,
-                          imageUrl: value as String,
+                          imageUrl: value,
                           id: _editedProduct.id,
                           isFavorite: _editedProduct.isFavorite,
                         );
