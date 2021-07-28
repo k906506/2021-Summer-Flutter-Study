@@ -24,18 +24,20 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (ctx) => Auth(),
         ),
-        ChangeNotifierProvider(
+        ChangeNotifierProxyProvider<Auth, Products>(
           // builder : (ctx) => Products(), -> 오류 발생
-          create: (ctx) => Products(),
+          update : (context, auth, previous) => Products(auth.token, previous.items),
+          create : (ctx) => Products(null, []),
         ),
         ChangeNotifierProvider(
           // builder : (ctx) => Products(), -> 오류 발생
           create: (ctx) => Cart(),
         ),
-        ChangeNotifierProvider(
+        ChangeNotifierProxyProvider<Auth, Orders>(
           // builder : (ctx) => Products(), -> 오류 발생
-          create: (ctx) => Orders(),
-        )
+          update : (context, auth, previous) => Orders(auth.token, previous.orders),
+          create : (ctx) => Orders(null, []),
+        ),
       ],
       child: Consumer<Auth>(
         builder: (ctx, authData, _) => MaterialApp(

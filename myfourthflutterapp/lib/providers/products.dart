@@ -118,6 +118,10 @@ class Products with ChangeNotifier {
     return _items.firstWhere((element) => element.id == id);
   }
 
+  final String autoToken;
+
+  Products(this.autoToken, this._items);
+
 // void showFavoritesOnly() {
 //   _showFavoritesOnly = true;
 //   notifyListeners();
@@ -129,8 +133,8 @@ class Products with ChangeNotifier {
 // }
 //
   Future<void> fetchAndSetProducts() async {
-    const url =
-        'https://myfourthflutterapp-default-rtdb.firebaseio.com/products.json';
+    final url =
+        'https://myfourthflutterapp-default-rtdb.firebaseio.com/products.json?auth=$autoToken';
     try {
       final response = await http.get(url);
       final extractData = json.decode(response.body) as Map<String, dynamic>;
@@ -156,8 +160,8 @@ class Products with ChangeNotifier {
   }
 
   Future<void> addProduct(Product product) async {
-    const url =
-        'https://myfourthflutterapp-default-rtdb.firebaseio.com/products.json';
+    final url =
+        'https://myfourthflutterapp-default-rtdb.firebaseio.com/products.json?auth=$autoToken';
     try {
       final response = await http.post(
         url,
@@ -187,7 +191,7 @@ class Products with ChangeNotifier {
     final prodIndex = _items.indexWhere((prod) => prod.id == id);
     if (prodIndex >= 0) {
       final url =
-          'https://myfourthflutterapp-default-rtdb.firebaseio.com/products/$id.json';
+          'https://myfourthflutterapp-default-rtdb.firebaseio.com/products/$id.json?auth=$autoToken';
       await http.patch(url,
           body: json.encode({
             'title': newProduct.title,
@@ -205,7 +209,7 @@ class Products with ChangeNotifier {
 
   Future<void> deleteProduct(String id) async {
     final url =
-        'https://myfourthflutterapp-default-rtdb.firebaseio.com/products/$id.json';
+        'https://myfourthflutterapp-default-rtdb.firebaseio.com/products/$id.json?auth=$autoToken';
     final existingProductIndex = _items.indexWhere((prod) => prod.id == id);
     var existingProduct = _items[existingProductIndex];
     final response = await http.delete(url);
