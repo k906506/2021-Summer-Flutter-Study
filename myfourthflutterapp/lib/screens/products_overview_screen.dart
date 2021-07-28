@@ -13,7 +13,7 @@ enum FilterOptions {
 }
 
 class ProductsOverviewScreen extends StatefulWidget {
-  @override
+ @override
   _ProductsOverviewScreenState createState() => _ProductsOverviewScreenState();
 }
 
