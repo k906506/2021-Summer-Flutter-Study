@@ -6,10 +6,10 @@ class Badge extends StatelessWidget {
   final Color color;
 
   const Badge({
-    Key? key,
-    required this.child,
-    required this.value,
-    required this.color,
+    Key key,
+    @required this.child,
+    @required this.value,
+    @required this.color,
   }) : super(key: key);
 
   @override
