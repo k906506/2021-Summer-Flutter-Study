@@ -1,6 +1,10 @@
 # 2021-Summer-Assemble-And-Selfcode
 충남대학교 컴퓨터공학과 21년 여름방학 모각코 (모여서 각자 코딩)
+&nbsp;
 Flutter 학습
+
+# 학습 일지
+[Tistory에서 확인하기](https://codekodo.tistory.com/category/Act/2021_%EC%97%AC%EB%A6%84_%EB%AA%A8%EA%B0%81%EC%BD%94_%EA%B0%9C%EC%9D%B8)
 
 **1** 
 [myfirstflutterapp](https://github.com/k906506/2021-Summer-Assemble-And-Selfcode/tree/master/myfirstflutterapp)
