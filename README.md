@@ -7,6 +7,7 @@ Flutter 학습
 <br />
 <br />
 
+# 주차별 코드
 **1** 
 [myfirstflutterapp](https://github.com/k906506/2021-Summer-Assemble-And-Selfcode/tree/master/myfirstflutterapp)
 &nbsp;
