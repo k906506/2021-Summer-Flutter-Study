@@ -5,7 +5,6 @@ Flutter 학습
 # 학습 일지
 [Tistory에서 확인하기](https://codekodo.tistory.com/category/Act/2021_%EC%97%AC%EB%A6%84_%EB%AA%A8%EA%B0%81%EC%BD%94_%EA%B0%9C%EC%9D%B8)
 <br />
-<br />
 
 # 주차별 코드
 **1** 
