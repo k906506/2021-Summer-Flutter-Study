@@ -6,7 +6,7 @@ Flutter 학습
 [Tistory에서 확인하기](https://codekodo.tistory.com/category/Act/2021_%EC%97%AC%EB%A6%84_%EB%AA%A8%EA%B0%81%EC%BD%94_%EA%B0%9C%EC%9D%B8)
 <br />
 
-# 주차별 코드
+# 코드
 **1** 
 [myfirstflutterapp](https://github.com/k906506/2021-Summer-Assemble-And-Selfcode/tree/master/myfirstflutterapp)
 &nbsp;
